@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+**/.venv/
+**/venv/
+
+# Pytest / Coverage / Cache
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+**/.cache/
+
+# Model weights & large binaries (>100MB exceeds GitHub push limit)
+# Pretrained models can be downloaded via scripts/download_models.py
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Outputs and compressed artifacts
+outputs/*
+!outputs/.gitkeep
+compressed/
+**/compressed/
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,75 @@
+# DeepTrace configuration — tuned for real-world webcam/phone footage
+# Calibrated on 2026-10-06 via iterative real-video validation
+rppg:
+  band_hz:
+  - 0.7
+  - 3.0
+  filter_order: 3
+  window_s: 6
+  chrom_window_s: 1.6
+  target_hz: 30.0
+  welch_segment_s: 8.0
+  snr_peak_half_width_hz: 0.15
+  corr_real: 0.28
+  corr_fake: 0.12
+  min_duration_s: 5
+  discard_initial_s: 1.5
+  max_lag_ms: 30.0
+  method: chrom
+  artifact_amp_ratio: 3.0
+phonetics:
+  tolerance_ms: 120
+  model_size: base
+  min_speech_s: 1.0
+  closure_percentile: 10.0
+  closure_margin: 0.015
+  min_bilabial_events: 2
+  aperture_target_hz: 30.0
+  aperture_smoothing_s: 0.08
+  min_landmark_fraction: 0.5
+  burst_window_ms: 100
+  burst_rms_percentile: 75.0
+  max_lag_ms: 500
+arbiter:
+  weights:
+    hemodynamic: 0.55
+    phonetic: 0.35
+    spectral_snr: 0.1
+  verdict_cutoffs:
+    authentic: 0.50
+    suspect: 0.35
+    manipulated: 0.35
+  bpm_agreement:
+    max_bpm_diff: 20.0
+  snr_bounds:
+    min_db: -3.0
+    max_db: 15.0
+  shrinkage:
+    prior_events: 5.0
+  confidence:
+    min_duration_high_s: 12.0
+    min_duration_med_s: 6.0
+    min_events_high: 5
+    min_events_med: 2
+  rules:
+    manipulated_min_confidence: MEDIUM
+    manipulated_min_clean_window_fraction: 0.5
+    min_duration_rppg_alone_s: 15.0
+quality:
+  min_face_fraction: 0.70
+  min_snr_db: 0.0
+  max_motion_level: 0.12
+face_tracker:
+  roi_scale_interocular: 0.35
+  max_eye_depth_ratio: 0.35
+  min_detection_confidence: 0.5
+  min_tracking_confidence: 0.5
+bakeoff:
+  models:
+    image: "prithivMLmods/Deep-Fake-Detector-v2-Model"
+    video: "SoraExplora/VideoMae"
+    audio: "MelodyMachine/Deepfake-audio-detection"
+  sample_frames: 16
+  video_crop_size: 224
+  audio_sample_rate_hz: 16000
+  audio_chunk_s: 10.0
