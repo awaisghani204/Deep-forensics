@@ -1,0 +1,24 @@
+# Python 3.10
+streamlit==1.39.0
+mediapipe==0.10.14
+opencv-contrib-python==4.10.0.84
+numpy==1.26.4
+PyYAML==6.0.2
+pytest==8.3.3
+cmudict==1.1.1
+librosa==0.10.2.post1
+
+# Planned analysis/reporting dependencies; not yet used by the scaffold.
+scipy==1.14.1
+matplotlib==3.9.2
+reportlab==4.2.5
+faster-whisper==1.0.3
+plotly==7.1.0
+
+# Pretrained model evaluation bakeoff dependencies
+torch>=2.2.0
+torchvision>=2.17.0
+transformers==5.19.0
+huggingface_hub==1.33.0
+soundfile==0.14.0
+scikit-learn==1.7.2
